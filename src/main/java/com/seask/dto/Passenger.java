@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Passenger {
     String bus_route_id;
+    String veh_id;
     String origin_station;
     String destination_station;
     boolean is_help;
