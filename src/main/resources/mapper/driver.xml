@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seask.model.mapper.PassengerMapper">
+    <!-- bus_route_id를 활용한 현재 승객 조회 -->
+    <!-- 승차인원, 하차인원 뱉어야됨 -->
+    <select id="selectPassengerById" parameterType="String" resultType="Map">
+        select * from boarding_passengers where bus_id
+    </select>
+
+    <!-- 정차 완료 -->
+
+</mapper>

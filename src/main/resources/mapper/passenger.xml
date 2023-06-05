@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seask.model.mapper.PassengerMapper">
+    <!-- 승차버튼 누를 때 -->
+    <insert id="insertBoardingPassenger" parameterType="Passenger">
+        insert into boarding_passengers (bus_route_id, origin_station, destination_station, is_help, is_board)
+        values (#{bus_route_id}, #{origin_station}, #{destination_station}, #{is_help}, #{is_board});
+    </insert>
+
+    <!-- 하차버튼 누를 때 --> <!-- 일단은 도착지 기준으로 지움, 나중에 물어보자 -->
+    <delete id="deleteBoardingPassenger" parameterType="String">
+        delete
+        from boarding_passengers
+        where origin_station = #{origin_station}
+          and destination_station = #{destination_station}
+    </delete>
+
+    <!-- 탑승완료 누를 때 -->
+    <update id="updateIsBoard" parameterType="String">
+        update boarding_passengers
+        set is_board= true
+        where origin_station = #{origin_station}
+          and destination_station = #{destination_station}
+    </update>
+
+
+</mapper>
