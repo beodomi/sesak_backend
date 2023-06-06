@@ -1,6 +1,7 @@
 package com.seask.controller;
 
 import com.seask.dto.Passenger;
+import com.seask.dto.Station;
 import com.seask.model.service.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -45,5 +47,12 @@ public class PassengerController {
     {
         passengerService.updateIsHelp(passenger);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/station/{station_name}")
+    public ResponseEntity<?> searchStation(@PathVariable String station_name) throws SQLException {
+        List<Station> result = passengerService.selectStationBySnm(station_name);
+
+        return ResponseEntity.ok(result);
     }
 }
