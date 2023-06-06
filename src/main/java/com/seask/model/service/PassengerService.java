@@ -1,6 +1,7 @@
 package com.seask.model.service;
 
 import com.seask.dto.Passenger;
+import com.seask.dto.Route;
 import com.seask.dto.Station;
 
 import java.sql.SQLException;
@@ -13,4 +14,6 @@ public interface PassengerService {
     public void updateIsBoard(Passenger passenger) throws SQLException;
     public void updateIsHelp(Passenger passenger) throws SQLException;
     public List<Station> selectStationBySnm(String station_name) throws SQLException;
+
+    public List<Route> selectRoutebyRoutenm(String route_name) throws SQLException;
 }
