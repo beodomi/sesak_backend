@@ -33,5 +33,10 @@
           and destination_station = #{destination_station} and bus_route_id = #{bus_route_id} and veh_id = #{veh_id}
     </update>
 
+    <!-- 역 이름 검색-->
+    <select id="selectStationBySnm" parameterType="Station" resultType="Station">
+        select * from station where station_name LIKE concat('%', #{station_name}, '%')
+    </select>
+
 
 </mapper>
