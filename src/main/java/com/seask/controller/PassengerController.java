@@ -50,9 +50,9 @@ public class PassengerController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/station/{station_name}")
-    public ResponseEntity<?> searchStation(@PathVariable String station_name) throws SQLException {
-        List<Station> result = passengerService.selectStationBySnm(station_name);
+    @GetMapping("/station")
+    public ResponseEntity<?> searchStation(@RequestBody Station station) throws SQLException {
+        List<Station> result = passengerService.selectStationBySnm(station);
 
         return ResponseEntity.ok(result);
     }
