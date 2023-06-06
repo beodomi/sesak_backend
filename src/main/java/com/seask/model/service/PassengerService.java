@@ -8,5 +8,6 @@ public interface PassengerService {
     public void insertBoardingPassenger(Passenger passenger) throws SQLException;
     public void deleteBoardingPassenger(String origin_station, String destination_station) throws SQLException;
 
-    public void updateIsBoard(String origin_station, String destination_station) throws SQLException;
+    public void updateIsBoard(Passenger passenger) throws SQLException;
+    public void updateIsHelp(Passenger passenger) throws SQLException;
 }

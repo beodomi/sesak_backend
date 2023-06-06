@@ -28,7 +28,13 @@ public class PassengerServiceImpl implements PassengerService{
     }
 
     @Override
-    public void updateIsBoard(String origin_station, String destination_station) throws SQLException {
-        passengerMapper.updateIsBoard(origin_station, destination_station);
+    public void updateIsBoard(Passenger passenger) throws SQLException {
+        passengerMapper.updateIsBoard(passenger);
     }
+
+    @Override
+    public void updateIsHelp(Passenger passenger) throws SQLException {
+        passengerMapper.updateIsHelp(passenger);
+    }
+
 }
