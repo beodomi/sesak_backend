@@ -13,7 +13,7 @@ public interface PassengerService {
 
     public void updateIsBoard(Passenger passenger) throws SQLException;
     public void updateIsHelp(Passenger passenger) throws SQLException;
-    public List<Station> selectStationBySnm(String station_name) throws SQLException;
+    public List<Station> selectStationBySnm(Station station) throws SQLException;
 
     public List<Route> selectRoutebyRoutenm(String route_name) throws SQLException;
 }

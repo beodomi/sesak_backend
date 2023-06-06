@@ -41,8 +41,8 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     @Override
-    public List<Station> selectStationBySnm(String station_name) throws SQLException {
-        List<Station> result = passengerMapper.selectStationBySnm(station_name);
+    public List<Station> selectStationBySnm(Station station) throws SQLException {
+        List<Station> result = passengerMapper.selectStationBySnm(station);
         return result;
     }
 

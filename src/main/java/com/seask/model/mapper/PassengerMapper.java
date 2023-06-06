@@ -16,7 +16,7 @@ public interface PassengerMapper {
     public void updateIsHelp(Passenger passenger) throws SQLException;
 
     //역 이름 검색
-    public List<Station> selectStationBySnm(String station_name) throws SQLException;
+    public List<Station> selectStationBySnm(Station station) throws SQLException;
     //노선
     public List<Route> selectRoutebyRoutenm(String route_name) throws SQLException;
 }

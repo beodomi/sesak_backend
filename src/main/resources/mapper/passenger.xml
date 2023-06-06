@@ -35,7 +35,18 @@
 
     <!-- 역 이름 검색-->
     <select id="selectStationBySnm" parameterType="Station" resultType="Station">
-        select * from station where station_name LIKE concat('%', #{station_name}, '%')
+        SELECT
+            node_id,
+            ars_id,
+        station_name,
+        x,
+        y,
+        (6371 * ACOS(COS(RADIANS(#{y})) * COS(RADIANS(y)) * COS(RADIANS(x) - RADIANS(#{x})) + SIN(RADIANS(#{y})) * SIN(RADIANS(y)))) AS distance
+        FROM
+        station
+        where station_name LIKE concat('%', #{station_name}, '%')
+        HAVING distance &lt; 0.3
+        ORDER BY distance
     </select>
 
     <!-- 노선 검색 -->

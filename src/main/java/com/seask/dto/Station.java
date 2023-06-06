@@ -15,4 +15,5 @@ public class Station {
     String station_name;
     double x;
     double y;
+    double distance;
 }
