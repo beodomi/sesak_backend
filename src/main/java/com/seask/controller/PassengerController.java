@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/pass")
 public class PassengerController {
     private PassengerService passengerService;
