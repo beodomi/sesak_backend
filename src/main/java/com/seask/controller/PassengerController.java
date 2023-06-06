@@ -26,15 +26,24 @@ public class PassengerController {
         return ResponseEntity.ok().build();
     }
 
+    //하차벨
     @DeleteMapping("/{origin_station}/{destination_station}/delete")
     public ResponseEntity<?> delete(@PathVariable String origin_station, @PathVariable String destination_station) throws SQLException {
         passengerService.deleteBoardingPassenger(origin_station, destination_station);
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/{origin_station}/{destination_station}/put")
-    public ResponseEntity<?> put(@PathVariable String origin_station, @PathVariable String destination_station) throws SQLException {
-        passengerService.updateIsBoard(origin_station, destination_station);
+    //탑승 완료 버튼
+    @PostMapping("/ride")
+    public ResponseEntity<?> put(@RequestBody Passenger passenger) throws SQLException {
+        passengerService.updateIsBoard(passenger);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/help")
+    public ResponseEntity<?> updateHelp(@RequestBody Passenger passenger) throws SQLException
+    {
+        passengerService.updateIsHelp(passenger);
         return ResponseEntity.ok().build();
     }
 }
