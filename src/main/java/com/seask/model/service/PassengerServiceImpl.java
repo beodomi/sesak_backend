@@ -1,21 +1,22 @@
 package com.seask.model.service;
 
 import com.seask.dto.Passenger;
+import com.seask.dto.Route;
 import com.seask.dto.Station;
 import com.seask.model.mapper.PassengerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.sql.SQLException;
 import java.util.List;
 
 @Service
-public class PassengerServiceImpl implements PassengerService{
+public class PassengerServiceImpl implements PassengerService {
 
     private PassengerMapper passengerMapper;
 
     @Autowired
-    public PassengerServiceImpl(PassengerMapper passengerMapper)
-    {
+    public PassengerServiceImpl(PassengerMapper passengerMapper) {
         this.passengerMapper = passengerMapper;
     }
 
@@ -42,7 +43,12 @@ public class PassengerServiceImpl implements PassengerService{
     @Override
     public List<Station> selectStationBySnm(String station_name) throws SQLException {
         List<Station> result = passengerMapper.selectStationBySnm(station_name);
+        return result;
+    }
 
-        return  result;
+    @Override
+    public List<Route> selectRoutebyRoutenm(String route_name) throws SQLException {
+        List<Route> result = passengerMapper.selectRoutebyRoutenm(route_name);
+        return result;
     }
 }

@@ -38,5 +38,10 @@
         select * from station where station_name LIKE concat('%', #{station_name}, '%')
     </select>
 
+    <!-- 노선 검색 -->
+    <select id="selectRoutebyRoutenm" parameterType="Route" resultType="Route">
+        select * from route where route_name LIKE concat('%', #{route_name}, '%')
+    </select>
+
 
 </mapper>

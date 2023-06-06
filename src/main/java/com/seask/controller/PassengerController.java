@@ -1,6 +1,7 @@
 package com.seask.controller;
 
 import com.seask.dto.Passenger;
+import com.seask.dto.Route;
 import com.seask.dto.Station;
 import com.seask.model.service.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,13 @@ public class PassengerController {
     @GetMapping("/station/{station_name}")
     public ResponseEntity<?> searchStation(@PathVariable String station_name) throws SQLException {
         List<Station> result = passengerService.selectStationBySnm(station_name);
+
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/route/{route_name}")
+    public ResponseEntity<?> searchRoute(@PathVariable String route_name) throws SQLException{
+        List<Route> result = passengerService.selectRoutebyRoutenm(route_name);
 
         return ResponseEntity.ok(result);
     }
