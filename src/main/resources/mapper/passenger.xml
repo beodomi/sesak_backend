@@ -55,7 +55,7 @@
     </select>
 
     <!-- 순번 조회-->
-    <select id="selectOrdByRidAndAid">
+    <select id="selectOrdByRidAndAid" parameterType="String" resultType="String">
         select ord from all_station_route where bus_route_id = #{bus_route_id} and ars_id = #{ars_id}
     </select>
 
