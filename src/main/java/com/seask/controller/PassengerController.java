@@ -50,7 +50,7 @@ public class PassengerController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/station")
+    @PostMapping("/station")
     public ResponseEntity<?> searchStation(@RequestBody Station station) throws SQLException {
         List<Station> result = passengerService.selectStationBySnm(station);
 
