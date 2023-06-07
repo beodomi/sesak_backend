@@ -54,5 +54,10 @@
         select * from route where route_name LIKE concat('%', #{route_name}, '%')
     </select>
 
+    <!-- 순번 조회-->
+    <select id="selectOrdByRidAndAid">
+        select ord from all_station_route where bus_route_id = #{bus_route_id} and ars_id = #{ars_id}
+    </select>
+
 
 </mapper>
