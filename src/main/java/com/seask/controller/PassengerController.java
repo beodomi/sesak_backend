@@ -63,4 +63,11 @@ public class PassengerController {
 
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("/ord/{bus_route_id}/{ars_id}")
+    public ResponseEntity<?> selectOrd(@PathVariable String bus_route_id, @PathVariable String ars_id) throws SQLException {
+        String result = passengerService.selectOrdByRidAndAid(bus_route_id, ars_id);
+
+        return ResponseEntity.ok(result);
+    }
 }
