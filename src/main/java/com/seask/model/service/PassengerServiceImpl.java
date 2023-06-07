@@ -51,4 +51,9 @@ public class PassengerServiceImpl implements PassengerService {
         List<Route> result = passengerMapper.selectRoutebyRoutenm(route_name);
         return result;
     }
+
+    @Override
+    public String selectOrdByRidAndAid(String bus_route_id, String ars_id) throws SQLException {
+        return passengerMapper.selectOrdByRidAndAid(bus_route_id, ars_id);
+    }
 }
