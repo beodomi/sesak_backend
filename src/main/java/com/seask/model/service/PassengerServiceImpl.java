@@ -56,4 +56,9 @@ public class PassengerServiceImpl implements PassengerService {
     public String selectOrdByRidAndAid(String bus_route_id, String ars_id) throws SQLException {
         return passengerMapper.selectOrdByRidAndAid(bus_route_id, ars_id);
     }
+
+    @Override
+    public void updateDestination(Passenger station) throws SQLException {
+        passengerMapper.updateDestination(station);
+    }
 }

@@ -22,7 +22,7 @@
         update boarding_passengers
         set is_board= true
         where origin_station = #{origin_station}
-          and destination_station = #{destination_station} and bus_route_id = #{bus_route_id} and veh_id = #{veh_id}
+          and destination_station = #{destination_station} and bus_route_id = #{bus_route_id}
     </update>
 
     <!-- 중간에 도움 요청 누룰 수 있도록 -->
@@ -30,7 +30,7 @@
         update boarding_passengers
         set is_help = true
         where origin_station = #{origin_station}
-          and destination_station = #{destination_station} and bus_route_id = #{bus_route_id} and veh_id = #{veh_id}
+          and destination_station = #{destination_station} and bus_route_id = #{bus_route_id}
     </update>
 
     <!-- 역 이름 검색-->
@@ -58,6 +58,14 @@
     <select id="selectOrdByRidAndAid" parameterType="String" resultType="String">
         select ord from all_station_route where bus_route_id = #{bus_route_id} and ars_id = #{ars_id}
     </select>
+
+
+    <update id="updateDestination" parameterType="Passenger">
+        update boarding_passengers
+        set destination_station = #{destination_station}
+        where origin_station = #{origin_station}
+        and bus_route_id = #{bus_route_id}
+    </update>
 
 
 </mapper>

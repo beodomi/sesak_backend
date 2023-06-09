@@ -70,4 +70,11 @@ public class PassengerController {
 
         return ResponseEntity.ok(result);
     }
+
+    @PutMapping("/destination")
+    public ResponseEntity<?> updateDest(@RequestBody Passenger station) throws SQLException {
+        passengerService.updateDestination(station);
+
+        return ResponseEntity.ok().build();
+    }
 }
