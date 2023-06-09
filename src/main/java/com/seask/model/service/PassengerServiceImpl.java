@@ -58,7 +58,7 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     @Override
-    public void updateDestination(Passenger station) throws SQLException {
-        passengerMapper.updateDestination(station);
+    public void updateDestination(Passenger passenger) throws SQLException {
+        passengerMapper.updateDestination(passenger);
     }
 }
