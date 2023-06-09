@@ -5,8 +5,8 @@
 <mapper namespace="com.seask.model.mapper.PassengerMapper">
     <!-- 승차버튼 누를 때 -->
     <insert id="insertBoardingPassenger" parameterType="Passenger">
-        insert into boarding_passengers (bus_route_id, veh_id ,origin_station, destination_station, is_help, is_board)
-        values (#{bus_route_id}, #{veh_id}, #{origin_station}, #{destination_station}, #{is_help}, 0);
+        insert into boarding_passengers (bus_route_id, origin_station, is_help, is_board)
+        values (#{bus_route_id}, #{origin_station}, 0, 0);
     </insert>
 
     <!-- 하차버튼 누를 때 --> <!-- 일단은 도착지 기준으로 지움, 나중에 물어보자 -->
@@ -22,7 +22,7 @@
         update boarding_passengers
         set is_board= true
         where origin_station = #{origin_station}
-          and destination_station = #{destination_station} and bus_route_id = #{bus_route_id}
+        and bus_route_id = #{bus_route_id}
     </update>
 
     <!-- 중간에 도움 요청 누룰 수 있도록 -->
@@ -59,13 +59,10 @@
         select ord from all_station_route where bus_route_id = #{bus_route_id} and ars_id = #{ars_id}
     </select>
 
-
     <update id="updateDestination" parameterType="Passenger">
         update boarding_passengers
         set destination_station = #{destination_station}
         where origin_station = #{origin_station}
         and bus_route_id = #{bus_route_id}
     </update>
-
-
 </mapper>

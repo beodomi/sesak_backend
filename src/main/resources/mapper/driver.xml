@@ -6,14 +6,14 @@
     <!-- bus_route_id를 활용한 현재 승객 조회 -->
     <!-- 다음정거장의 승차 예정 인원, 하차 예정인원 뱉어야됨 -->
     <select id="selectPassengerById" parameterType="String" resultType="Map">
-        select count(case when origin_station = #{destination_station} and is_board = 0 then 1 end)                      as riding_pass,
-               count(case when origin_station = #{destination_station} and is_board = 0 and is_help = 1 then 1 end)         riding_pass_help,
-               count(case when destination_station = #{destination_station} and is_board = 1 then 1 end)                 as landing_pass,
+        select count(case when origin_station = #{destination_station} then 1 end)      as         riding_pass,
+               count(case when origin_station = #{destination_station} and is_help = 1 then 1 end) riding_pass_help,
+               count(case when destination_station = #{destination_station} then 1 end) as         landing_pass,
                count(case
-                         when destination_station = #{destination_station} and is_board = 1 and is_help = 1
-                             then 1 end)                                                               as landing_pass_help
+                         when destination_station = #{destination_station} and is_help = 1
+                             then 1 end)                                                as         landing_pass_help
         from boarding_passengers
-        where bus_route_id = #{bus_route_id} and veh_id = #{veh_id};
+        where bus_route_id = #{bus_route_id}
     </select>
 
     <!-- 정차 완료 -->

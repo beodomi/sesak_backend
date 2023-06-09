@@ -19,5 +19,5 @@ public interface PassengerService {
 
     public String selectOrdByRidAndAid(String bus_route_id, String ars_id) throws SQLException;
 
-    public void updateDestination(Passenger station) throws SQLException;
+    public void updateDestination(Passenger passenger) throws SQLException;
 }
