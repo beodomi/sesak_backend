@@ -18,4 +18,6 @@ public interface PassengerService {
     public List<Route> selectRoutebyRoutenm(String route_name) throws SQLException;
 
     public String selectOrdByRidAndAid(String bus_route_id, String ars_id) throws SQLException;
+
+    public void updateDestination(Passenger station) throws SQLException;
 }
