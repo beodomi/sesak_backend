@@ -50,6 +50,14 @@ public class PassengerController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/cancel")
+    public ResponseEntity<?> cancelHelp(@RequestBody Passenger passenger) throws SQLException
+    {
+        passengerService.cancelIsHelp(passenger);
+        return ResponseEntity.ok().build();
+    }
+
+
     @PostMapping("/station")
     public ResponseEntity<?> searchStation(@RequestBody Station station) throws SQLException {
         List<Station> result = passengerService.selectStationBySnm(station);
