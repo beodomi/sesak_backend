@@ -14,6 +14,7 @@ public interface PassengerMapper {
     public void deleteBoardingPassenger(String origin_station, String destination_station) throws SQLException;
     public void updateIsBoard(Passenger passenger) throws SQLException;
     public void updateIsHelp(Passenger passenger) throws SQLException;
+    public void cancelIsHelp(Passenger passenger) throws SQLException;
 
     //역 이름 검색
     public List<Station> selectStationBySnm(Station station) throws SQLException;

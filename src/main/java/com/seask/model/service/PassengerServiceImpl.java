@@ -41,6 +41,11 @@ public class PassengerServiceImpl implements PassengerService {
     }
 
     @Override
+    public void cancelIsHelp(Passenger passenger) throws SQLException {
+        passengerMapper.cancelIsHelp(passenger);
+    }
+
+    @Override
     public List<Station> selectStationBySnm(Station station) throws SQLException {
         List<Station> result = passengerMapper.selectStationBySnm(station);
         return result;
