@@ -30,7 +30,7 @@
         update boarding_passengers
         set is_help = true
         where origin_station = #{origin_station}
-          and destination_station = #{destination_station} and bus_route_id = #{bus_route_id}
+        and bus_route_id = #{bus_route_id}
     </update>
 
     <!-- 역 이름 검색-->
